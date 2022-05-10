@@ -6,13 +6,16 @@ const config: GatsbyConfig = {
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
+    "gatsby-plugin-layout",
+    "gatsby-plugin-fontawesome-css",
+    "gatsby-plugin-postcss",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "src/assets/profile.jpg",
       },
     },
     "gatsby-plugin-mdx",
@@ -22,10 +25,10 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "images",
-        path: "./src/images/",
+        name: "assets",
+        path: "./src/assets/",
       },
-      __key: "images",
+      __key: "assets",
     },
     {
       resolve: "gatsby-source-filesystem",
@@ -34,6 +37,28 @@ const config: GatsbyConfig = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/locales`,
+        name: `locale`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`,
+        languages: [`en`, `hu`],
+        defaultLanguage: `en`,
+        siteUrl: `http://localhost:8000/`,
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false,
+          },
+          nsSeparator: false,
+        },
+      },
     },
   ],
 };

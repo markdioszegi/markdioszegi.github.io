@@ -1,0 +1,12 @@
+{
+  "en": "English",
+  "hu": "Hungarian",
+  "name": "Mark Dioszegi",
+  "greeting": {
+    "line1": "Hello!",
+    "line2": "My name is"
+  },
+  "softwareDevelopment": "Software Development",
+  "about": "About me",
+  "music": "Music"
+}
